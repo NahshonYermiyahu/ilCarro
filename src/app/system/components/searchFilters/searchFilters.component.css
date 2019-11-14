@@ -1,0 +1,229 @@
+
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right:160px;
+  height: 1000px;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+.search-find{
+  width: 609px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 37px;
+}
+
+.search-find-v{
+  height: 48px;
+  display: grid;
+  grid-template-rows: 10px 38px 7px;
+  grid-template-columns: 304px 38px 67px 38px 105px 1fr;
+  align-content: flex-end;
+}
+
+.find-0 {
+  grid-row: 3/4;
+  grid-column: 1/-1;
+  background-color: #062639;
+}
+
+.find-1 {
+  grid-row: 1/3;
+  grid-column: 1/3;
+  background: #062639 0% 0% no-repeat padding-box;
+  clip-path: polygon(0 0, 292px 0, 100% 100%,0 100%);
+  color: #FFFFFF;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 27px;
+}
+
+.find-1-text{
+  font:normal 13px/24px 'Raleway';
+  letter-spacing: 0;
+  color: #FFFFFF;
+  opacity: 1;
+  padding-right: 61px;
+  padding-left: 16px;
+}
+.find-2 {
+  grid-row: 2/3;
+  grid-column: 2/5;
+  background: #6C7E8B 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  border: 2px solid #FFFFFF;
+  border-left: 0;
+  clip-path: polygon(0 0, 105px 0, 100% 100%, 40px 100%);
+  color: #FFFFFF;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 50px;
+  font-size: 21px;
+}
+
+.find-3 {
+  grid-row: 2/3;
+  grid-column: 4/6;
+  background: #EA2340 0% 0% no-repeat padding-box;
+
+  border: 2px solid #FFFFFF;
+  clip-path: polygon(2px 0, 105px 0, 100% 100%, 40px 100%);
+  color: #FFFFFF;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 50px;
+  font-size: 21px;
+}
+
+.search-find-n{
+  height: 915px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #0000005F;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.search-label{
+  margin-left: 199px;
+  text-align: left;
+  margin-bottom: 43px;
+  margin-top: 42px;
+}
+
+.search-input{
+  margin-left: 199px;
+  height: 583px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.search-find-loc{
+  width: 371px;
+  height: 47px;
+  margin-left: 199px;
+  margin-bottom: 21px;
+  border: #5F727E 1px solid;
+  padding-left: 6px;
+}
+
+.search-find-input{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: #6C7E8B;
+  padding-right: 9px;
+  padding-top: 12px;
+}
+
+.fa-angle-down {
+  font-size: 27px;
+}
+
+.search-label-text{
+  font:bold 32px/59px Raleway;
+  color: #EA2340;
+}
+
+.search-img{
+  width: 1090px;
+  height: 915px;
+  display: grid;
+  margin-top: 85px;
+  grid-template-rows: repeat(3, 395px);
+  grid-template-columns: repeat(2,536px);
+}
+
+.img-block{
+  display: grid;
+  grid-template-rows: 309px 9px 32px 5px 40px;
+
+}
+.img-auto{
+  height: 309px;
+  grid-row: 1/2;
+}
+
+.img-text{
+  grid-row: 3/4;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-right: 9px;
+}
+
+.img-lab{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.img-label{
+  font: Bold 32px/38px 'BebasNeueBold', sans-serif;
+  letter-spacing: 0;
+  color: #062639;
+  text-transform: capitalize;
+  opacity: 1;
+}
+
+.img-date{
+  margin-left: 17px;
+  font: Bold 24px/29px 'BebasNeueBold', sans-serif;
+  letter-spacing: 0;
+  color: #06263998;
+  text-transform: capitalize;
+  opacity: 1;
+}
+
+.img-perDay{
+  margin-right: 12px;
+  width: 132px;
+  height: 62px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000052;
+  opacity: 1;
+  display: flex;
+  justify-items: flex-end;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.img-perDay-dol{
+  font: Bold 21px/69px 'Raleway';
+  letter-spacing: 0;
+  color: #062639;
+  opacity: 1;
+  padding-left: 8px;
+  padding-bottom: 27px;
+}
+
+.img-perDay-price{
+  font: Bold 59px/71px 'BebasNeueBold', sans-serif;
+  letter-spacing: 0;
+  color: #062639;
+  text-transform: capitalize;
+  opacity: 1;
+  align-self: flex-start;
+}
+
+.img-perDay-perDay{
+  display:flex;
+  font: Bold 16px/19px 'BebasNeueBold', sans-serif;
+  letter-spacing: 0;
+  width: 40px;
+  height: 16px;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  color: #06263998;
+  text-transform: capitalize;
+  opacity: 1;
+}

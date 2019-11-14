@@ -1,0 +1,680 @@
+<div class="let-car">
+
+  <div *ngIf="isLoading" style="text-align: center">
+    <app-loading-spinner></app-loading-spinner>
+  </div>
+
+  <div class="let-car-header">
+    <span>Let the car work</span>
+  </div>
+
+  <div class="let-car-text">
+    <p>
+      Candy canes topping dessert jelly beans pie jelly beans sweet roll.
+      Toffee cotton candy cake chocolate cake. Bonbon gummi bears jelly-o
+      bonbon fruitcake tootsie roll cake cookie gingerbread. Icing wafer
+      pie pudding ice cream bonbon halvah bonbon topping. Donut halvah
+      tiramisu bear claw tart.
+    </p>
+  </div>
+
+  <div class="let-form" *ngIf="!isLoading">
+
+    <div class="let-label">
+      <span class="loc-label">Location:</span>
+    </div>
+
+    <div>
+      <label for="search"></label>
+      <input
+        class="input-search"
+        type="text"
+        id="search"
+        autocomplete="on"
+        ngModel
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="off"
+        #search
+        placeholder="Enter your address"
+        name="search"
+      >
+    </div>
+
+    <div>
+      <label for="country"></label>
+      <input
+        class="input-search"
+        type="text"
+        id="country"
+        autocomplete="on"
+        [ngModel]="location.country"
+        placeholder="Country"
+        name="country"
+        required
+      >
+    </div>
+
+    <div>
+      <label for="street"></label>
+      <input
+        class="input-search"
+        type="text"
+        id="street"
+        autocomplete="on"
+        [ngModel]="location.street"
+        placeholder="Street"
+        name="street"
+        required
+      >
+    </div>
+
+    <div>
+      <label for="city"></label>
+      <input
+        class="input-search"
+        type="text"
+        id="city"
+        autocomplete="on"
+        [ngModel]="location.city"
+        placeholder="City"
+        name="city"
+        required
+      >
+    </div>
+
+    <div>
+      <label for="region"></label>
+      <input
+        class="input-search"
+        type="text"
+        id="region"
+        autocomplete="on"
+        [ngModel] = location.region
+        placeholder="State/Region/Province"
+        name="region"
+      >
+    </div>
+
+    <div>
+      <label for="zip"></label>
+      <input
+        class="input-search"
+        type="text"
+        id="zip"
+        [ngModel]="location.zip"
+        autocomplete="on"
+        placeholder="ZIP"
+        name="zip"
+      >
+    </div>
+
+
+    <form
+      #setForm = "ngForm"
+      enctype='multipart/form-data'
+      (ngSubmit)="onSubmit(setForm)"
+      *ngIf="!isLoading"
+    >
+
+      <div class="let-label" style="margin-top: 58px">
+        <span>Car details:</span>
+      </div>
+
+      <div class="d-block">
+        <div class="d-text">
+          Serial number
+        </div>
+        <label for="serial_number"></label>
+        <input
+          *ngIf="numberCar.length>0"
+          class="d-input"
+          type="text"
+          id="serial_number"
+          [ngModel]="carData.serial_number"
+          name="serial_number"
+          required
+          #numberInput
+          (focusout)="getCarByNumber(numberInput.value)"
+        >
+        <label for="serial_number1"></label>
+        <input
+          *ngIf="!numberCar.length>0"
+          class="d-input"
+          type="text"
+          id="serial_number1"
+          [ngModel]="numberCarInput"
+          name="serial_number"
+          required
+          #numberInput
+          (focusout)="getCarByNumber(numberInput.value)"
+        >
+      </div>
+
+      <div class="d-block">
+        <div class="d-text">
+          Make
+        </div>
+        <label for="make"></label>
+        <select
+          *ngIf="numberCar.length>0"
+          class="d-input"
+          id="make"
+          required
+          [ngModel]="carData.make"
+          name="make"
+          #carInput
+          (input)="changeCarModels(carInput.value)"
+        >
+          <option value="" ></option>
+          <option *ngFor="let make of carsBrand" value="{{make}}">
+            {{make}}
+          </option>
+        </select>
+        <label for="make1"></label>
+        <select
+          *ngIf="!numberCar.length>0"
+          class="d-input"
+          id="make1"
+          required
+          ngModel
+          name="make"
+          #carInput
+          (input)="changeCarModels(carInput.value)"
+        >
+          <option value="" ></option>
+          <option *ngFor="let make of carsBrand" value="{{make}}">
+            {{make}}
+          </option>
+        </select>
+
+      </div>
+
+      <div class="d-block">
+        <div class="d-text">
+          Model
+        </div>
+        <label for="model"></label>
+        <select
+          *ngIf="numberCar.length>0"
+          class="d-input"
+          type="text"
+          id="model"
+          [ngModel]="carData.model"
+          required
+          name="model"
+        >
+          <option value=""></option>
+          <option *ngFor="let model of carModels" value="{{model}}">
+            {{model}}
+          </option>
+        </select>
+        <label for="model1"></label>
+        <select
+          *ngIf="!numberCar.length>0"
+          class="d-input"
+          type="text"
+          id="model1"
+          ngModel
+          required
+          name="model"
+        >
+          <option value="" ></option>
+          <option *ngFor="let model of carModels" value="{{model}}">
+            {{model}}
+          </option>
+        </select>
+      </div>
+
+      <div class="d-block">
+          <div class="d-text">
+            Year
+          </div>
+          <label for="year"></label>
+          <input
+            type="text"
+            class="d-input"
+            id="year"
+            *ngIf="numberCar.length>0"
+            [ngModel] = carData.year
+            name="year"
+            required
+          >
+          <label for="year1"></label>
+          <input
+            type="text"
+            class="d-input"
+            id="year1"
+            *ngIf="!numberCar.length>0"
+            ngModel
+            name="year"
+            required
+          >
+        </div>
+
+      <div class="d-block">
+        <div class="d-text">
+          Engine
+        </div>
+        <label for="engine"></label>
+        <input
+          type="text"
+          id="engine"
+          class="d-input"
+          *ngIf="numberCar.length>0"
+          [ngModel] = carData.engine
+          name="engine"
+          required
+        >
+        <label for="engine1"></label>
+        <input
+          type="text"
+          id="engine1"
+          class="d-input"
+          *ngIf="!numberCar.length>0"
+          ngModel
+          name="engine"
+          required
+        >
+      </div>
+
+      <div class="d-block">
+        <div class="d-text">
+          Fuel
+        </div>
+        <label for="fuel"></label>
+        <select
+          *ngIf="numberCar.length>0"
+          class="d-input"
+          type="text"
+          id="fuel"
+          [ngModel] = carData.fuel
+          required
+          name="fuel"
+        >
+          <option value=""></option>
+          <option value="Gas">Gas</option>
+          <option value="Petrol">Petrol</option>
+          <option value="Diesel fuel">Diesel fuel</option>
+        </select>
+        <label for="fuel1"></label>
+        <select
+          *ngIf="!numberCar.length>0"
+          class="d-input"
+          type="text"
+          id="fuel1"
+          ngModel
+          required
+          name="fuel"
+        >
+          <option value=""></option>
+          <option value="Gas">Gas</option>
+          <option value="Petrol">Petrol</option>
+          <option value="Diesel fuel">Diesel fuel</option>
+        </select>
+      </div>
+
+      <div class="d-block">
+        <div class="d-text">
+          Transmission
+        </div>
+        <label for="gear"></label>
+        <select
+          *ngIf="numberCar.length>0"
+          class="d-input"
+          type="text"
+          id="gear"
+          [ngModel]="carData.gear"
+          required
+          name="gear"
+        >
+          <option value=""></option>
+          <option value="Automatic">Automatic</option>
+          <option value="Manual ">Manual</option>
+          <option value="Automated Manual">Automated Manual</option>
+        </select>
+        <label for="gear1"></label>
+        <select
+          *ngIf="!numberCar.length>0"
+          class="d-input"
+          type="text"
+          id="gear1"
+          ngModel
+          required
+          name="gear"
+        >
+          <option value="" ></option>
+          <option value="Automatic">Automatic</option>
+          <option value="Manual ">Manual</option>
+          <option value="Automated Manual">Automated Manual</option>
+        </select>
+      </div>
+
+      <div class="d-block">
+        <div class="d-text">
+          Wheels drive
+        </div>
+        <label for="wheels_drive"></label>
+        <select
+          *ngIf="numberCar.length>0"
+          class="d-input"
+          type="text"
+          id="wheels_drive"
+          [ngModel]="carData.wheels_drive"
+          required
+          name="wheels_drive"
+        >
+          <option value=""></option>
+          <option value="AWD">AWD</option>
+          <option value="4WD">4WD</option>
+          <option value="FWD">FWD</option>
+          <option value="RWD">RWD</option>
+        </select>
+        <label for="wheels_drive1"></label>
+        <select
+          *ngIf="!numberCar.length>0"
+          class="d-input"
+          type="text"
+          id="wheels_drive1"
+          ngModel
+          required
+          name="wheels_drive"
+        >
+          <option value="" ></option>
+          <option value="AWD">AWD</option>
+          <option value="4WD">4WD</option>
+          <option value="FWD">FWD</option>
+          <option value="RWD">RWD</option>
+        </select>
+      </div>
+
+      <div class="d-block">
+        <div class="d-text">
+          Doors
+        </div>
+        <label for="doors"></label>
+        <input
+          type="number"
+          id="doors"
+          *ngIf="numberCar.length>0"
+          [ngModel] = carData.doors
+          class="d-input"
+          name="doors"
+          required
+        >
+        <label for="doors1"></label>
+        <input
+          type="number"
+          id="doors1"
+          *ngIf="!numberCar.length>0"
+          ngModel
+          class="d-input"
+          name="doors"
+          required
+        >
+      </div>
+
+      <div class="d-block">
+        <div class="d-text">
+          Seats
+        </div>
+        <label for="seats"></label>
+        <input
+          type="number"
+          id="seats"
+          *ngIf="numberCar.length>0"
+          [ngModel] = carData.seats
+          class="d-input"
+          name="seats"
+          required
+        >
+        <label for="seats1"></label>
+        <input
+          type="number"
+          id="seats1"
+          *ngIf="!numberCar.length>0"
+          ngModel
+          class="d-input"
+          name="seats"
+          required
+        >
+      </div>
+
+      <div class="d-block">
+        <div class="d-text">
+          Fuel consumption
+        </div>
+        <label for="fuel consumption"></label>
+        <input
+          type="number"
+          id="fuel consumption"
+          *ngIf="numberCar.length>0"
+          [ngModel] = carData.fuel_consumption
+          class="d-input"
+          name="fuel_consumption"
+          required
+        >
+        <label for="fuel consumption1"></label>
+        <input
+          type="number"
+          id="fuel consumption1"
+          *ngIf="!numberCar.length>0"
+          ngModel
+          class="d-input"
+          name="fuel_consumption"
+          required
+        >
+      </div>
+
+      <div class="d-block">
+        <div class="d-text">
+          Distance included
+        </div>
+        <label for="distance_included"></label>
+        <input
+          type="number"
+          id="distance_included"
+          *ngIf="numberCar.length>0"
+          [ngModel] = carData.distance_included
+          class="d-input"
+          name="distance_included"
+          required
+        >
+        <label for="distance_included1"></label>
+        <input
+          type="number"
+          id="distance_included1"
+          *ngIf="!numberCar.length>0"
+          ngModel
+          class="d-input"
+          name="distance_included"
+          required
+        >
+      </div>
+
+      <div class="d-block">
+        <div class="d-text">
+          Class
+        </div>
+        <label for="car_class"></label>
+        <select
+          *ngIf="numberCar.length>0"
+          class="d-input"
+          type="text"
+          id="car_class"
+          [ngModel]="carData.car_class"
+          required
+          name="car_class"
+        >
+          <option value=""></option>
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="S">S</option>
+        </select>
+        <label for="car_class1"></label>
+        <select
+          *ngIf="!numberCar.length>0"
+          class="d-input"
+          type="text"
+          id="car_class1"
+          ngModel
+          required
+          name="car_class"
+        >
+          <option value="" ></option>
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="S">S</option>
+        </select>
+      </div>
+
+      <div class="d-block">
+        <div class="d-text">
+          Image url
+        </div>
+        <label for="image_url"></label>
+        <input
+          style="font: normal 13px/24px 'Raleway', sans-serif; color: #06263989;"
+          type="file"
+          id="image_url"
+          ngModel=""
+          class="d-input"
+          name="image_url"
+          multiple
+        >
+      </div>
+<!--       #myInput-->
+<!--      [(ngModel)]="image_url"-->
+<!--      #image_url-->
+
+      <div class="let-label" style="margin-top: 131px">
+        <span>About:</span>
+      </div>
+
+      <div>
+        <label for="about"></label>
+        <textarea
+          id="about"
+          *ngIf="numberCar.length>0"
+          [ngModel] = carData.about
+          name="about"
+          maxlength="500"
+          placeholder="About (max 500 chars)."
+        >
+        </textarea>
+        <label for="about1"></label>
+        <textarea
+          id="about1"
+          *ngIf="!numberCar.length>0"
+          ngModel
+          name="about"
+          maxlength="500"
+          placeholder="About (max 500 chars)."
+        >
+        </textarea>
+      </div>
+
+      <div class="let-label" style="margin-top: 58px">
+        <span>Features:</span>
+      </div>
+
+      <div class="d-block">
+        <div class="d-text">
+          Type feature
+        </div>
+        <label for="features"></label>
+        <select
+          *ngIf="numberCar.length>0"
+          class="d-input"
+          style="font: normal 16px 'Raleway', sans-serif"
+          type="text"
+          id="features"
+          [ngModel]="carData.features"
+          name="features"
+          required
+          multiple
+        >
+          <option value=""></option>
+          <option value=""></option>
+          <option value="22 inch wheels">22 inch wheels</option>
+          <option value="Power gestured roof">Power gestured roof</option>
+          <option value="Heated front seats ">Heated front seats </option>
+          <option value="Heated steering wheel ">Heated steering wheel </option>
+          <option value="Ambient interior lighting">Ambient interior lighting</option>
+          <option value="Meridian sound system">Meridian sound system</option>
+          <option value="Interactive driver display">Interactive driver display</option>
+          <option value="Lane departure warning">Lane departure warning</option>
+          <option value="Emergency braking">Emergency braking</option>
+          <option value="Traffic sign recognition">Traffic sign recognition</option>
+          <option value="Adaptive speed limiter">Adaptive speed limiter</option>
+        </select>
+        <label for="features1"></label>
+        <select
+          *ngIf="!numberCar.length>0"
+          class="d-input"
+          style="font: normal 16px 'Raleway', sans-serif"
+          type="text"
+          id="features1"
+          ngModel
+          name="features"
+          required
+          multiple
+        >
+          <option value="" ></option>
+          <option value=""></option>
+          <option value="22 inch wheels">22 inch wheels</option>
+          <option value="Power gestured roof">Power gestured roof</option>
+          <option value="Heated front seats ">Heated front seats </option>
+          <option value="Heated steering wheel ">Heated steering wheel </option>
+          <option value="Ambient interior lighting">Ambient interior lighting</option>
+          <option value="Meridian sound system">Meridian sound system</option>
+          <option value="Interactive driver display">Interactive driver display</option>
+          <option value="Lane departure warning">Lane departure warning</option>
+          <option value="Emergency braking">Emergency braking</option>
+          <option value="Traffic sign recognition">Traffic sign recognition</option>
+          <option value="Adaptive speed limiter">Adaptive speed limiter</option>
+        </select>
+      </div>
+
+      <div class="let-label" style="margin-top: 58px">
+        <span>Price per day:</span>
+      </div>
+
+      <div class="d-block">
+        <div class="d-text">
+          Price per day
+        </div>
+        <label for="price_per_day"></label>
+        <input
+          type="number"
+          id="price_per_day"
+          *ngIf="numberCar.length>0"
+          [ngModel] = carData.price_per_day
+          ngModel
+          class="d-input"
+          name="price_per_day"
+          required
+        >
+        <label for="price_per_day1"></label>
+        <input
+          type="number"
+          id="price_per_day1"
+          *ngIf="!numberCar.length>0"
+          ngModel
+          class="d-input"
+          name="price_per_day"
+          required
+        >
+      </div>
+
+      <button type="submit">
+        Submit
+      </button>
+
+    </form>
+
+  </div>
+
+</div>

@@ -1,0 +1,252 @@
+<div *ngIf="isLoading" style="text-align: center">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+<div class="stiil" *ngIf="!isLoading">
+
+  <div class="st-img">
+
+    <div class="st-img-auto">
+      <img src="{{car.image_url[1]}}" style="height: 618px; width: 1052px">
+    </div>
+
+    <div class="st-img-text">
+      <div class="st-img-lab">
+        <span class="st-img-label">{{car.make}} {{car.model}}</span>
+        <span class="st-img-date">{{car.year}}</span>
+      </div>
+
+      <div class="st-img-perDay">
+        <span class="st-img-perDay-dol">$</span>
+        <span class="st-img-perDay-price">{{car.price_per_day}}</span>
+        <div class="st-img-perDay-perDay">
+          <span style="margin-right: 5px">PER</span>
+          <span>DAY</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="st-form">
+
+    <div class="st-label">
+    <span class="st-label-text">
+      Still available in your area
+    </span>
+    </div>
+
+    <form
+      class="still-form"
+      #ngForm = ngForm
+      (ngSubmit)="onSubmit(ngForm)"
+    >
+
+      <label for="location"></label>
+      <input
+        id="location"
+        name = "location"
+        type="text"
+        ngModel
+        placeholder="Location"
+        required
+      >
+
+      <label for="from"></label>
+      <div class="d-block">
+        <div class="d-text" style="width: 40px">
+          From
+        </div>
+        <input
+          class="d-input"
+          id="from"
+          type="datetime-local"
+          ngModel
+          name="from"
+          required
+        >
+      </div>
+
+      <label for="till"></label>
+      <div class="d-block">
+        <div class="d-text" style="width: 40px">
+          Till
+        </div>
+        <input
+          class="d-input"
+          id="till"
+          type="datetime-local"
+          ngModel
+          name="till"
+          required
+        >
+      </div>
+
+      <button class="sub-st">
+        Rent how!
+      </button>
+
+    </form>
+
+  </div>
+
+  <div class="st-text">
+    <div class="st-pol">
+      <div class="st-pol-star">
+        <i class="fa fa-star" style="font-size:18px;color:#FFFFFF" ></i>
+        <i class="fa fa-star" style="font-size:18px;color:#FFFFFF"></i>
+        <i class="fa fa-star" style="font-size:18px;color:#FFFFFF"></i>
+        <i class="fa fa-star" style="font-size:18px;color:#FFFFFF"></i>
+        <i class="fa fa-star-o" style="font-size:18px;color:#FFFFFF"></i>
+      </div>
+
+      <span class="st-pol-text">50 trips</span>
+    </div>
+
+    <div class="engine">
+      <span>Engine:</span>
+      <span>Fuel:</span>
+      <span>Gear:</span>
+      <span>Fuel_cons:</span>
+      <span>WD:</span>
+    </div>
+
+    <div class="block-v">
+
+      <div class="block-v-l">
+        <ul>
+          <li>{{car.engine}}</li>
+          <li>{{car.fuel}}</li>
+          <li>{{car.gear}}</li>
+          <li>{{car.fuel_consumption}}/100km</li>
+          <li>{{car.wheels_drive}}</li>
+        </ul>
+      </div>
+
+      <div class="block-v-c">
+        <span>Dist_incl:</span>
+        <span>Doors:</span>
+        <span>Seats:</span>
+        <span>Class:</span>
+        <span>Model</span>
+      </div>
+
+      <div class="block-v-l">
+        <ul>
+          <li>{{car.distance_included}}</li>
+          <li>{{car.doors}}</li>
+          <li>{{car.seats}}</li>
+          <li>{{car.car_class}}</li>
+          <li>{{car.model}}</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="block-v-r">
+      <span>Location:</span>
+    </div>
+
+    <div class="block-v-r-loc">
+      <p>
+        {{location.route}},{{location.street_number}},
+        {{location.city}}, {{location.region}},
+        {{location.country}}, {{location.zip}}
+      </p>
+    </div>
+
+    <div class="st-about">
+      <span>About:</span>
+    </div>
+
+    <div class="st-about-text">
+    <span>
+      {{car.about}}
+    </span>
+    </div>
+
+    <div class="st-feat">
+      <span>Features:</span>
+    </div>
+
+    <div class="st-feat-text">
+      <span *ngFor="let feat of car.features">- {{feat}}</span>
+    </div>
+
+  </div>
+
+  <div class="st-map">
+    <agm-map
+      [latitude]="pick_up_place.latitude"
+      [longitude]="pick_up_place.longitude"
+      [disableDefaultUI]="true"
+      [zoomControl]="true"
+    >
+      <agm-marker
+        [latitude]="pick_up_place.latitude"
+        [longitude]="pick_up_place.longitude"
+      ></agm-marker>
+    </agm-map>
+  </div>
+
+  <div class="st-clients">
+
+    <div class="det_lat">
+      <div >
+        <img src="../../../../assets/img/user-1.jpg" alt="1"class="img_lat" >
+      </div>
+
+      <div class="user_det">
+        <p>
+          Candy canes topping dessert jelly beans pie jelly beans sweet roll.
+          Toffee cotton candy cake chocolate cake.
+        </p>
+        <div class="cont-det">
+          <p class="name_det">Candy Miles</p>
+          <p class="date_det">22 september 2019</p>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="det_lat">
+      <div>
+        <img src="../../../../assets/img/user-2.jpg" alt="2" class="img_lat">
+      </div>
+
+      <div class="user_det">
+        <p>
+          Candy canes topping dessert jelly beans pie jelly beans sweet roll.
+          Toffee cotton candy cake chocolate cake.
+        </p>
+        <div class="cont-det">
+          <p class="name_det">Candy Miles</p>
+          <p class="date_det">22 september 2019</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="det_lat">
+      <div>
+        <img src="../../../../assets/img/user-3.jpg" alt="3" class="img_lat">
+      </div>
+
+      <div class="user_det">
+        <p>
+          Candy canes topping dessert jelly beans pie jelly beans sweet roll.
+          Toffee cotton candy cake chocolate cake.
+        </p>
+        <div class="cont-det">
+          <p class="name_det">Candy Miles</p>
+          <p class="date_det">22 september 2019</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+

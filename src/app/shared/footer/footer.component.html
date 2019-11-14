@@ -1,0 +1,82 @@
+<footer class="footer">
+
+  <div class="item item--1">
+    <p>
+      Candy canes topping dessert jelly beans pie jelly beans sweet roll.
+      Toffee cotton candy cake chocolate cake.
+      Bonbon gummi bears jelly-o bonbon fruitcake tootsie
+    </p>
+  </div>
+
+  <div class="logo item item--2">
+    <img src="../../../assets/img/component%20(4).png" alt="ilCarro">
+  </div>
+
+  <div class="item item--3">
+    <a href="https://www.facebook.com">
+      <i class='fab fa-facebook-square'></i>
+    </a>
+
+    <a href="https://telegram.org">
+      <i class='fab fa-telegram'></i>
+    </a>
+
+    <a href="https://vk.com">
+      <i class='fab fa-vk'></i>
+    </a>
+
+    <a href="https://www.instagram.com">
+      <i class='fab fa-instagram'></i>
+    </a>
+
+    <a href="https://slack.com">
+      <i class='fab fa-slack-hash'></i>
+    </a>
+
+  </div>
+
+  <div class="item item--4">
+    <div class="ultimate">
+      <span>THE ULTIMATE</span>
+      <span>CAR RENTAL SERVICE</span>
+    </div>
+  </div>
+
+  <div class="item item--5">
+    <a [routerLink]="['/system','search']">Search</a>
+    <a [routerLink]="['/system','let-car']">Let the car work</a>
+    <a href="#">Terms of use</a>
+    <a *ngIf="!isAuthenticated" [routerLink]="['/auth', 'signup']">Sign up</a>
+    <a *ngIf="!isAuthenticated" [routerLink]="['/auth', 'login']">Log in</a>
+    <a style="cursor: pointer" *ngIf="isAuthenticated" (click)="onLogout()">Logout</a>
+  </div>
+
+  <div class="item item--6">
+    <label class="citiesLabel">TOP CITIES</label>
+    <a href="#">New-York</a>
+    <a href="#">Tokyo</a>
+    <a href="#">Paris</a>
+    <a href="#">London</a>
+    <a href="#">Los Angeles</a>
+  </div>
+
+  <div class="item item--7">
+    <a href="#">Vienna</a>
+    <a href="#">Moscow</a>
+    <a href="#">Warsaw</a>
+    <a href="#">Berlin</a>
+    <a href="#">Seattle</a>
+  </div>
+
+  <div class="item item--8">
+    <div class="tel">
+      <span>08-616-8800-55</span>
+    </div>
+
+    <div class="address">
+      <span>1600 Amphitheatre Pkwy</span>
+      <span>Mountain View, CA 94043, USA</span>
+    </div>
+  </div>
+
+</footer>

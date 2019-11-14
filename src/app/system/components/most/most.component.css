@@ -1,0 +1,139 @@
+.most {
+  height: 833px;
+  display: grid;
+  grid-template-rows: 280px 22px 413px 63px 55px;
+  grid-template-columns: 165px 250px 416px 218px 417px 271px 1fr;
+}
+
+.most_label {
+  grid-column: 2/4;
+  grid-row: 1/2;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+}
+
+.most_label_3 {
+  display: flex;
+  padding-top: 23px;
+  font:  Bold 149px/149px 'BebasNeueBold', sans-serif;
+  color: #EA2340;
+}
+
+.most_label_text {
+  display: flex;
+  flex-direction: column;
+  padding-left: 17px;
+  justify-content: space-between;
+  font: bold 54px/54px 'BebasNeueBold', sans-serif;
+  color: #062639;
+  align-self: center;
+}
+
+.most-text {
+  grid-column: 5/7;
+  grid-row: 1/2;
+  align-self: center;
+}
+
+.most-block {
+  grid-column: 1/8;
+  grid-row: 2/6;
+  background-color: #062639;
+  position: relative;
+  z-index: 1;
+}
+
+.most-red {
+  grid-column: 1/8;
+  grid-row: 2/5;
+  background-color: #EA2340;
+  clip-path: polygon(94% 0, 100% 25%, 100% 100%, 6% 100%, 0 75%, 0 0);
+  position: relative;
+  z-index: 2;
+}
+
+.volga {
+  grid-column: 3/6;
+  grid-row: 3/4;
+  position: relative;
+  z-index: 3;
+}
+.zaz {
+  display: flex;
+  flex-direction: row-reverse;
+  grid-column: 1/4;
+  grid-row: 3/4;
+  position: relative;
+  z-index: 3;
+}
+
+.mz {
+  grid-column: 5/8;
+  grid-row: 3/4;
+  position: relative;
+  z-index: 3;
+}
+
+.most-red-text {
+  grid-column: 1/8;
+  grid-row: 4/5;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  z-index: 3;
+  padding-right: 70px;
+  align-items: center;
+}
+
+.most-red-label {
+  font: Bold 32px/38px 'BebasNeueBold', sans-serif;
+  color: #FFFFFF;
+}
+
+.per {
+  width: 1908px;
+  height: 91px;
+  position: relative;
+  z-index: 3;
+  margin-top: 762px;
+  display: flex;
+  justify-content: space-around;
+  padding-right: 85px;
+}
+
+.per_day {
+  width: 194px;
+  height: 91px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 3px 6px #00000029;
+  display: flex;
+  justify-items: flex-end;
+  align-items: center;
+  padding-top: 12px;
+}
+
+.per_day_PD{
+  display: block;
+  font: Bold 24px/29px 'BebasNeueBold', sans-serif;
+  color: #06263998;
+  width: 191px;
+  height: 29px;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  text-transform: capitalize;
+}
+
+.per_day_180 {
+  font: Bold 88px/106px 'BebasNeueBold', sans-serif;
+  color: #EA2340;
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.per_day_dol {
+  font: Bold 31px/102px 'Raleway', sans-serif;
+  color: #EA2340;
+  padding-left: 12px;
+}

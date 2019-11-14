@@ -1,0 +1,127 @@
+.footer {
+  height: 444px;
+  position: relative;
+  display: grid;
+  background: #062639 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 6px #00000029;
+  opacity: 1;
+  grid-template-rows: 127px 80px 42px 55px 45px 43px 52px;
+  grid-template-columns: 160px 708px  184px 156px 156px 1fr 279px 160px;
+}
+
+.item {
+  color: #FFFFFF;
+  font: normal 16px/24px 'Raleway', sans-serif;
+}
+
+.item--1 {
+  grid-column: 2 / 3;
+  text-align: left;
+  margin-right: 100px;
+  align-self: center;
+}
+
+.item--2 {
+  grid-column: 3/4;
+  align-self: center;
+}
+
+.item--3{
+   grid-column: 6/8;
+   font: bold 29px/60px 'Font Awesome 5 Brands', sans-serif;
+   letter-spacing: 2.58px;
+   color: #FFFFFF;
+   opacity: 1;
+   align-self: center;
+   justify-content: space-between;
+   display: flex;
+ }
+
+.item--3 i + i {
+   margin-left: 44px;
+ }
+
+.item--4{
+   grid-column: 1/4;
+   grid-row: 2/-1;
+   background: #EA2340 0% 0% no-repeat padding-box;
+   clip-path: polygon(0 0, 45% 0, 100% 100%, 0 100%);
+ }
+
+.item--5{
+   grid-column: 4/8;
+   grid-row: 2/3;
+   font: Bold 16px/19px 'Raleway', sans-serif;
+   letter-spacing: 0;
+   color: #FFFFFF;
+   opacity: 1;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding-left: 47px;
+   border-bottom: #FFFFFF 1px solid ;
+ }
+
+.item--6 {
+   grid-column: 4/5;
+   grid-row: 4/-1;
+   padding-left: 47px;
+   display: flex;
+   flex-direction: column;
+ }
+
+.item--7{
+   grid-column: 5/6;
+   grid-row: 4/-1;
+   padding-left: 47px;
+   padding-top: 29px;
+   display: flex;
+   flex-direction: column;
+ }
+
+.item--8{
+   grid-column: 7/8;
+   grid-row: 4/-1;
+ }
+
+
+.citiesLabel {
+  text-align: left;
+  font:  normal 16px/24px  'Raleway', sans-serif;
+  letter-spacing: 0;
+  color: #FFFFFF;
+  opacity: 0.55;
+  padding-bottom: 5px;
+  padding-top: 0;
+}
+
+.tel {
+  color: #EA2340;
+  text-align: right;
+  font: bold 54px/54px 'BebasNeueBold', sans-serif;
+  letter-spacing: 0;
+  text-transform: capitalize;
+}
+
+.address {
+  margin-top: 44px;
+  flex-direction: column;
+  text-align: right;
+  letter-spacing: 0;
+  color: #FFFFFF;
+}
+
+.ultimate {
+  display: flex;
+  margin-left: 160px;
+  margin-top: 120px;
+  max-width: 338px;
+  max-height: 109px;
+  flex-direction: column;
+  text-align: left;
+  font:bold 54px/54px 'BebasNeueBold', sans-serif;
+  letter-spacing: 0;
+  color: #FFFFFF;
+  text-transform: capitalize;
+  opacity: 1;
+}
