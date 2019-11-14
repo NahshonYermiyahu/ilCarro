@@ -8,17 +8,14 @@ import {SharedModule} from './shared/shared.module';
 import {FormsModule} from '@angular/forms';
 import {SystemModule} from './system/system.module';
 import {Cloudinary, CloudinaryConfiguration, CloudinaryModule} from '@cloudinary/angular-5.x';
-import {PhotoAlbModule} from './system/components/photo-alb/photo-alb.module';
 import {AgmCoreModule, GoogleMapsAPIWrapper} from '@agm/core';
-import { MapComponent } from './map/map.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MapComponent
+    AppComponent
   ],
   imports: [
     CommonModule,
@@ -33,8 +30,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     NgbModule,
     SystemModule,
-    CloudinaryModule.forRoot({Cloudinary}, {cloud_name: 'dp0qiqfyj'} as CloudinaryConfiguration),
-    PhotoAlbModule
+    CloudinaryModule.forRoot({Cloudinary}, {cloud_name: 'dp0qiqfyj'} as CloudinaryConfiguration)
   ],
   providers: [GoogleMapsAPIWrapper],
   exports: [AppComponent],
