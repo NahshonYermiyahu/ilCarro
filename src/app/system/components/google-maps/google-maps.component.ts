@@ -23,14 +23,14 @@ interface Location {
 export class GoogleMapsComponent implements OnInit {
 
   public location:Location = {
-    lat: 51.678418,
-    lng: 7.809007,
+    lat: 31.912363,
+    lng: 34.8047923,
     marker: {
-      lat: 51.678418,
-      lng: 7.809007,
+      lat: 31.912363,
+      lng: 34.8047923,
       draggable: true
     },
-    zoom: 8
+    zoom: 12
   };
 
   constructor(){}

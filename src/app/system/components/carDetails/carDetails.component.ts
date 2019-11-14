@@ -31,6 +31,7 @@ export class CarDetailsComponent implements OnInit, OnDestroy {
   car:CarModel;
   sub: Subscription;
   sub1: Subscription;
+  zoom = 12;
   public location: Location = {
     city: '',
     street_number: '',
