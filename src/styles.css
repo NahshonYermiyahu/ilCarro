@@ -1,1 +1,117 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+  text-align: left;
+  color: #062639;
+  font:normal 16px/24px  'Raleway', sans-serif;
+  letter-spacing: 0;
+  opacity: 1;
+  line-height: 1.6;
+}
+@font-face {
+  font-family: 'BebasNeueBold';
+  src: url("../src/assets/fonts/BebasNeueBold.ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+input {
+  width: 371px;
+  height: 47px;
+  border: 1px solid #5F727E;
+  padding-left: 6px;
+  text-align: left;
+  font: Bold 24px/24px 'Raleway', sans-serif;
+  color: #062639;
+}
+
+::placeholder {
+  font: normal 13px/24px 'Raleway', sans-serif;
+  color: #06263989;
+  text-align: left;
+}
+
+select{
+  width: 371px;
+  height: 47px;
+  border: 1px solid #5F727E;
+  padding-left: 6px;
+  padding-top: 20px;
+  text-align: left;
+  font: normal 13px/24px 'Raleway', sans-serif;
+  color: #06263989;
+  background-color: inherit;
+}
+
+option{
+  font: normal 13px/24px 'Raleway', sans-serif;
+  color: #062639;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+
+html{
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1920px;
+  background-color: #FFFFFF;
+}
+
+.logo {
+  background: #062639 0% 0% no-repeat padding-box;
+  opacity: 1;
+  width: 184px;
+  height: 33px;
+}
+
+.d-flex {
+  display: flex;
+}
+
+
+/*---------------------------------------------------------------------*/
+/*input-date*/
+/*---------------------------------------------------------------------*/
+.d-block{
+  width: 371px;
+  height: 47px;
+  border: 1px solid #5F727E;
+  padding-left: 6px;
+  font: Bold 24px/24px 'Raleway', sans-serif;
+  color: #062639;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.d-text{
+  width: 70px;
+  font: normal 13px/24px 'Raleway', sans-serif;
+  color: #06263989;
+  display: flex;
+  align-items: flex-end;
+}
+
+.d-input{
+  border-style: hidden;
+  margin-left: 15px;
+  height: 45px
+}
+
+
