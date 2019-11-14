@@ -111,7 +111,8 @@ ul {
 .d-input{
   border-style: hidden;
   margin-left: 15px;
-  height: 45px
+  height: 45px;
+  font: Bold 20px 'Raleway', sans-serif;
 }
 
 

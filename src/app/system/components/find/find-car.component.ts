@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-find-car',
@@ -12,4 +13,8 @@ export class FindCarComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit(ngForm: NgForm) {
+    console.log(ngForm.form.value)
+
+  }
 }

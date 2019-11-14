@@ -2,32 +2,64 @@
 
 <div class="find_car">
 
-  <div class="find-form">
+  <form
+    class="find-form"
+    #ngForm = ngForm
+    (ngSubmit)="onSubmit(ngForm)"
+    >
 
-    <div class="find-label">
-      <span class="find-label-V">Find your car now!</span>
-      <span class="find-label-N">Type your data and hit Yalla!</span>
-    </div>
+      <div class="find-label">
+        <span class="find-label-V">Find your car now!</span>
+        <span class="find-label-N">Type your data and hit Yalla!</span>
+      </div>
 
-    <div class="find-form-input">
-      <label>
-        <input placeholder="Location">
-      </label>
+      <div class="find-form-input">
+        <label for="location"></label>
+        <input
+          id="location"
+          name="location"
+          type="text"
+          ngModel
+          required
+          placeholder="Location"
+        >
 
-      <label>
-        <input  placeholder="From">
-      </label>
+        <label for="from"></label>
+        <div class="d-block">
+          <div class="d-text" style="width: 40px">
+            From
+          </div>
+          <input
+            class="d-input"
+            id="from"
+            type="datetime-local"
+            ngModel
+            name="from"
+            required
+          >
+        </div>
 
-      <label>
-        <input  placeholder="Till">
-      </label>
-    </div>
+        <label for="till"></label>
+        <div class="d-block">
+          <div class="d-text" style="width: 40px">
+            Till
+          </div>
+          <input
+            class="d-input"
+            id="till"
+            type="datetime-local"
+            ngModel
+            name="till"
+            required
+          >
+        </div>
+      </div>
 
-    <button class="sub-find">
-      Submit
-    </button>
+      <button class="sub-find">
+        Submit
+      </button>
 
-  </div>
+  </form>
 </div>
 
 <app-never></app-never>
