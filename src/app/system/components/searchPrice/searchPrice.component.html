@@ -18,7 +18,11 @@
       <div class="find-0"></div>
     </div>
 
-    <div class="search-find-n">
+    <form
+      class="search-find-n"
+      ngModel
+      (change)="onSubmit()"
+    >
 
       <div class="search-label">
           <span class="search-label-text">
@@ -26,39 +30,60 @@
           </span>
       </div>
 
-<!--      <form oninput="result.value=parseInt(a.value)+parseInt(b.value)">-->
-<!--        <input type="range" name="b" value="50" /> +-->
-<!--        <input type="number" name="a" value="10" /> =-->
-<!--        <output name="result">60</output>-->
-<!--      </form>-->
-
-<!--      <form action="/action_page.php" method="get">-->
-<!--        Points:-->
-<!--        <input type="range" name="points" min="0" max="10">-->
-<!--        <input type="submit">-->
-<!--      </form>-->
-
       <div class="search-form-input">
-        <label>
-          <input placeholder="Location">
-        </label>
 
-        <label>
-          <input  placeholder="From">
-        </label>
+        <label for="location"></label>
+        <div class="d-block">
+          <div class="d-text" style="width: 75px">
+            Location
+          </div>
+          <input
+            class="d-input"
+            id="location"
+            name="city"
+            type="text"
+            [ngModel]="reqData.city"
+            (ngModelChange)="reqData.city = $event"
+            required
+          >
+        </div>
 
-        <label>
-          <input  placeholder="Till">
-        </label>
+
+        <label for="from"></label>
+        <div class="d-block">
+          <div class="d-text" style="width: 40px">
+            From
+          </div>
+          <input
+            class="d-input"
+            id="from"
+            type="datetime-local"
+            [ngModel]="reqData.start_date | date: 'yyyy-MM-ddThh:mm'"
+            (ngModelChange)="reqData.start_date = $event"
+            name="start_date"
+            required
+          >
+        </div>
+
+        <label for="till"></label>
+        <div class="d-block">
+          <div class="d-text" style="width: 40px">
+            Till
+          </div>
+          <input
+            class="d-input"
+            id="till"
+            type="datetime-local"
+            [ngModel]="reqData.end_date | date: 'yyyy-MM-ddThh:mm'"
+            (ngModelChange)="reqData.end_date = $event"
+            name="end_date"
+            required
+          >
+        </div>
       </div>
 
       <div class="sort-label">
         <span>Sort by:</span>
-      </div>
-
-      <div class="sort">
-        <div class="sort-l">Price (low to high)</div>
-        <div class="sort-r">Price (high to low)</div>
       </div>
 
       <div class="price-range">
@@ -66,14 +91,27 @@
         <div class="price-range-r">100 - 300</div>
       </div>
 
-      <div class="line-line">
-        <i class='fas fa-caret-up' style='font-size:40px'></i>
-        <i class='fas fa-caret-up' style='font-size:40px'></i>
-
+      <div class="sort">
+        <button class="sort-l">Price (low to high)</button>
+        <button class="sort-r">Price (high to low)</button>
       </div>
 
 
-    </div>
+
+      <div class="line-line">
+        <npn-slider
+          [min]="10"
+          [max]="300"
+          (onChange)="onSliderChange($event)"
+          [step]="5"
+          [minSelected]="30"
+          [maxSelected]="150"
+          [showStepIndicator]="true"
+        ></npn-slider>
+      </div>
+
+
+    </form>
 
   </div>
 

@@ -16,6 +16,7 @@ import {SharedModule} from '../shared/shared.module';
 import { GoogleMapsComponent } from './components/google-maps/google-maps.component';
 import {AgmCoreModule} from '@agm/core';
 import {FileUploadModule} from 'ng2-file-upload';
+import { NpnSliderModule } from "npn-slider";
 
 
 
@@ -48,7 +49,8 @@ import {FileUploadModule} from 'ng2-file-upload';
       apiKey: 'AIzaSyBZ9wGJSeKuaVXHJg3sKovhlZybGI7fW7A',
       libraries: ['places']
     }),
-    FileUploadModule
+    FileUploadModule,
+    NpnSliderModule
   ]
 })
 export class SystemModule { }

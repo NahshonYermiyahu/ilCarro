@@ -27,7 +27,7 @@ interface Location {
   styleUrls: ['./carDetails.component.css']
 })
 export class CarDetailsComponent implements OnInit, OnDestroy {
-
+  sn = "765-54-321";
   car:CarModel;
   sub: Subscription;
   sub1: Subscription;
@@ -52,7 +52,7 @@ export class CarDetailsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.isLoading = true;
-     this.sub = this.addCarService.getCar('765-54-321').subscribe(data => {
+     this.sub = this.addCarService.getCar(this.sn).subscribe(data => {
       console.log(data);
       this.car = data;
       this.pick_up_place = data.pick_up_place;

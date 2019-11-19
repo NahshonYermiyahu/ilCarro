@@ -15,14 +15,19 @@
 
       <div class="find-form-input">
         <label for="location"></label>
-        <input
-          id="location"
-          name="location"
-          type="text"
-          ngModel
-          required
-          placeholder="Location"
-        >
+        <div class="d-block">
+          <div class="d-text" style="width: 75px">
+            Location
+          </div>
+          <input
+            class="d-input"
+            id="location"
+            name="city"
+            type="text"
+            ngModel
+            required
+          >
+        </div>
 
         <label for="from"></label>
         <div class="d-block">
@@ -33,8 +38,9 @@
             class="d-input"
             id="from"
             type="datetime-local"
-            ngModel
-            name="from"
+            [ngModel]="startDate | date: 'yyyy-MM-ddThh:mm'"
+            (ngModelChange)="startDate = $event"
+            name="start_date"
             required
           >
         </div>
@@ -48,8 +54,9 @@
             class="d-input"
             id="till"
             type="datetime-local"
-            ngModel
-            name="till"
+            [ngModel]="endDate | date: 'yyyy-MM-ddThh:mm'"
+            (ngModelChange)="endDate = $event"
+            name="end_date"
             required
           >
         </div>

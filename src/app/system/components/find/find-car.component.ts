@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
+import {GoogleMapsService} from '../../services/google-maps.service';
+import {Router} from '@angular/router';
+
+
 
 @Component({
   selector: 'app-find-car',
@@ -8,13 +12,20 @@ import {NgForm} from '@angular/forms';
 })
 export class FindCarComponent implements OnInit {
 
-  constructor() { }
+  startDate: any;
+  endDate: any;
+
+  constructor(private googleMapsService: GoogleMapsService,
+              private router: Router) {
+     this.startDate = Date.now();
+     this.endDate = Date.now();
+  }
 
   ngOnInit() {
   }
 
   onSubmit(ngForm: NgForm) {
-    console.log(ngForm.form.value)
-
+    let data = ngForm.form.value;
+    this.router.navigate(['/system/searchPrice',data]);
   }
 }

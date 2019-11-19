@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
   isLoading = false;
   error: string = null;
 
-  constructor(private authSevice: AuthService,
+  constructor(private authService: AuthService,
               private router: Router) { }
 
   ngOnInit() {
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     const email = authForm.value.email;
     const password = authForm.value.password;
     this.isLoading = true;
-    this.authSevice.login(email, password)
+    this.authService.login(email, password)
       .subscribe(resData => {
         this.isLoading = false;
         this.router.navigate(['/system/find']);
