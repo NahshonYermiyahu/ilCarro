@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {GoogleMapsService} from '../../services/google-maps.service';
 import {Router} from '@angular/router';
+import {SearchCarService} from '../../services/search-car.service';
 
 
 
@@ -12,13 +12,13 @@ import {Router} from '@angular/router';
 })
 export class FindCarComponent implements OnInit {
 
-  startDate: any;
+  startDate:any;
   endDate: any;
 
-  constructor(private googleMapsService: GoogleMapsService,
+  constructor(private searchCarService: SearchCarService,
               private router: Router) {
-     this.startDate = Date.now();
-     this.endDate = Date.now();
+     this.startDate = new Date().toString();
+     this.endDate = new Date().toString();
   }
 
   ngOnInit() {

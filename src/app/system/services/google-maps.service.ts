@@ -114,10 +114,16 @@ export class GoogleMapsService {
               .find(d => d.types.indexOf('route') != -1).long_name,
             country: results[0].address_components
               .find(d => d.types.indexOf('country') != -1).long_name,
-            zip: results[0].address_components
-              .find(d => d.types.indexOf('postal_code') != -1).long_name,
+            zip:  results[0].address_components
+              .find(d => d.types.indexOf('postal_code') != -1) ?
+              results[0].address_components
+              .find(d => d.types.indexOf('postal_code') != -1)
+                .long_name : '',
             region: results[0].address_components
-              .find(d => d.types.indexOf('administrative_area_level_2') != -1).long_name
+              .find(d => d.types.indexOf('administrative_area_level_2') != -1) ?
+              results[0].address_components
+              .find(d => d.types.indexOf('administrative_area_level_2') != -1)
+                .long_name : ''
             }
           );
           observer.complete();

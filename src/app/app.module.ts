@@ -10,19 +10,21 @@ import {SystemModule} from './system/system.module';
 import {Cloudinary, CloudinaryConfiguration, CloudinaryModule} from '@cloudinary/angular-5.x';
 import {AgmCoreModule, GoogleMapsAPIWrapper} from '@agm/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
-
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
+import {AgmJsMarkerClustererModule} from '@agm/js-marker-clusterer';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    AngularMultiSelectModule,
     CommonModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBZ9wGJSeKuaVXHJg3sKovhlZybGI7fW7A',
       libraries: ['places']
     }),
+    AgmJsMarkerClustererModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,

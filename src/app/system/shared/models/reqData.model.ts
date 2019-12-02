@@ -5,8 +5,8 @@ export class ReqDataModel {
     public end_date: string,
     public min_amount: number,
     public max_amount: number,
-    public ascending: boolean,
-    public items_on_page: number,
-    public current_page: number
+    public ascending?: boolean,
+    public items_on_page?: number,
+    public current_page?: number
   ){}
 }

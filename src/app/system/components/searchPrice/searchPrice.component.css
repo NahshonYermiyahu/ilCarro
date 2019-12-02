@@ -208,7 +208,6 @@
   height: 915px;
   display: grid;
   margin-top: 85px;
-  grid-template-rows: repeat(3, 395px);
   grid-template-columns: repeat(2,536px);
 }
 
@@ -216,8 +215,8 @@
   display: grid;
   grid-template-rows: 309px 9px 32px 5px 40px;
 }
+
 .img-auto{
-  height: 309px;
   grid-row: 1/2;
 }
 

@@ -10,11 +10,11 @@
       </div>
 
       <div class="find-2">
-        <a href="./system/searchMap" class='fas fa-map-marker-alt'></a>
+        <a (click)="setMap()" class='fas fa-map-marker-alt'></a>
       </div>
 
       <div class="find-3">
-        <a href="./system/searchPrice" class='fas fa-search'></a>
+        <a (click)="searchPrice()" class='fas fa-search'></a>
       </div>
 
       <div class="find-0"></div>
@@ -30,59 +30,178 @@
 
       <div class="search-input">
 
-        <label>
-          <select name="Make">
-            <option value="">Make</option>
+        <div class="d-block">
+          <div class="d-text">
+            Make
+          </div>
+          <label for="make"></label>
+          <select
+            class="d-input"
+            id="make"
+            type="text"
+            name="make"
+            required
+            #make
+            (input)="getModel(make.value)"
+          >
+            <option value=""></option>
+            <option *ngFor="let make of makes" value="{{make}}">
+              {{make}}
+            </option>
           </select>
-        </label>
+        </div>
 
-        <label>
-          <select name="Model">
-            <option value="">Model</option>
+        <div class="d-block">
+          <div class="d-text">
+            Model
+          </div>
+          <label for="model"></label>
+          <select
+            class="d-input"
+            id="model"
+            type="text"
+            name="model"
+            required
+            ngModel
+            #model
+            (input)="getYear(model.value)"
+          >
+            <option value=""></option>
+            <option *ngFor="let model of modelsName" value="{{model}}">
+              {{model}}
+            </option>
           </select>
-        </label>
+        </div>
 
-        <label>
-          <select name="Year">
-            <option value="">Year</option>
+        <div class="d-block">
+          <div class="d-text">
+            Year
+          </div>
+          <label for="year"></label>
+          <select
+            class="d-input"
+            id="year"
+            type="text"
+            name="year"
+            required
+            ngModel
+            #year
+            (input)="getEngine(year.value)"
+          >
+            <option value=""></option>
+            <option *ngFor="let year of yearsName" value="{{year}}">
+              {{year}}
+            </option>
           </select>
-        </label>
+        </div>
 
-        <label>
-          <select name="Engine">
-            <option value="">Engine</option>
+        <div class="d-block">
+          <div class="d-text">
+            Engine
+          </div>
+          <label for="engine"></label>
+          <select
+            class="d-input"
+            id="engine"
+            type="text"
+            name="engine"
+            required
+            ngModel
+            #engine
+            (input)="getFuel(engine.value)"
+          >
+            <option value=""></option>
+            <option *ngFor="let engine of enginesName" value="{{engine}}">
+              {{engine}}
+            </option>
           </select>
-        </label>
+        </div>
 
-        <label>
-          <select name="Fuel">
-            <option value="">Fuel</option>
+        <div class="d-block">
+          <div class="d-text">
+            Fuel
+          </div>
+          <label for="fuel"></label>
+          <select
+            class="d-input"
+            id="fuel"
+            type="text"
+            name="fuel"
+            required
+            ngModel
+            #fuel
+            (input)="getGear(fuel.value)"
+          >
+            <option value=""></option>
+            <option *ngFor="let fuel of fuelsName" value="{{fuel}}">
+              {{fuel}}
+            </option>
           </select>
-        </label>
+        </div>
 
-        <label>
-          <select name="Transmission">
-            <option value="">Transmission</option>
+        <div class="d-block">
+          <div class="d-text">
+            Gear
+          </div>
+          <label for="gear"></label>
+          <select
+            class="d-input"
+            id="gear"
+            type="text"
+            name="gear"
+            required
+            ngModel
+            #gear
+            (input)="getWD(gear.value)"
+          >
+            <option value=""></option>
+            <option *ngFor="let gear of gearsName" value="{{gear}}">
+              {{gear}}
+            </option>
           </select>
-        </label>
+        </div>
 
-        <label>
-          <select name="WD">
-            <option value="">WD</option>
+        <div class="d-block">
+          <div class="d-text">
+            Wheels drive
+          </div>
+          <label for="wheels drive"></label>
+          <select
+            class="d-input"
+            id="wheels drive"
+            type="text"
+            name="wheels drive"
+            required
+            ngModel
+            #wd
+            (input)="getFC(wd.value)"
+          >
+            <option value=""></option>
+            <option *ngFor="let wd of wheels_drivesName" value="{{wd}}">
+              {{wd}}
+            </option>
           </select>
-        </label>
+        </div>
 
-        <label>
-          <select name="Horsepower">
-            <option value="">Horsepower</option>
+        <div class="d-block">
+          <div class="d-text">
+            Fuel consumption
+          </div>
+          <label for="fuel consumption"></label>
+          <select
+            class="d-input"
+            id="fuel consumption"
+            type="text"
+            name="Fuel consumption"
+            required
+            ngModel
+          >
+            <option value=""></option>
+            <option *ngFor="let fc of fuel_consumptionsName" value="{{fc}}">
+              {{fc}}
+            </option>
           </select>
-        </label>
-
-        <label>
-          <select name="Fuel consumption">
-            <option value="">Fuel consumption</option>
-          </select>
-        </label>
+        </div>
 
       </div>
 
@@ -92,21 +211,27 @@
 
   <div style="overflow: auto" class="search-img">
 
-    <div class="img-block">
+    <div class="img-block" *ngFor="let car of cars">
 
       <div class="img-auto">
-        <img src="../../../../assets/img/azlk.png">
+        <img
+          src="{{car.image_url[0]}}"
+          style="height: 309px;
+          width: 536px;
+          padding-right: 10px"
+          (click)="carDetails(car)"
+        >
       </div>
 
       <div class="img-text">
         <div class="img-lab">
-          <span class="img-label">MERCEDES-BENZ G-CLASS</span>
-          <span class="img-date">2019</span>
+          <span class="img-label">{{car.make}} {{car.model}}</span>
+          <span class="img-date">{{car.year}}</span>
         </div>
 
         <div class="img-perDay">
           <span class="img-perDay-dol">$</span>
-          <span class="img-perDay-price">180</span>
+          <span class="img-perDay-price">{{car.price_per_day}}</span>
           <div class="img-perDay-perDay">
             <span style="margin-right: 3px">PER</span>
             <span>DAY</span>
@@ -115,123 +240,6 @@
       </div>
 
     </div>
-
-    <div class="img-block">
-
-      <div class="img-auto">
-        <img src="../../../../assets/img/zaz.png">
-      </div>
-
-      <div class="img-text">
-        <div class="img-lab">
-          <span class="img-label">TESLA MODEL X</span>
-          <span class="img-date">2018</span>
-        </div>
-
-        <div class="img-perDay">
-          <span class="img-perDay-dol">$</span>
-          <span class="img-perDay-price">180</span>
-          <div class="img-perDay-perDay">
-            <span style="margin-right: 3px">PER</span>
-            <span>DAY</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="img-block">
-
-      <div class="img-auto">
-        <img src="../../../../assets/img/mb.png">
-      </div>
-
-      <div class="img-text">
-        <div class="img-lab">
-          <span class="img-label">MERCEDES-BENZ G-CLASS</span>
-          <span class="img-date">2019</span>
-        </div>
-        <div class="img-perDay">
-          <span class="img-perDay-dol">$</span>
-          <span class="img-perDay-price">180</span>
-          <div class="img-perDay-perDay">
-            <span style="margin-right: 3px">PER</span>
-            <span>DAY</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="img-block">
-
-      <div class="img-auto">
-        <img src="../../../assets/img/gaz.png">
-      </div>
-
-      <div class="img-text">
-        <div class="img-lab">
-          <span class="img-label">TESLA MODEL X</span>
-          <span class="img-date">2018</span>
-        </div>
-        <div class="img-perDay">
-          <span class="img-perDay-dol">$</span>
-          <span class="img-perDay-price">180</span>
-          <div class="img-perDay-perDay">
-            <span style="margin-right: 3px">PER</span>
-            <span>DAY</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="img-block">
-
-      <div class="img-auto">
-        <img src="../../../../assets/img/azlk.png">
-      </div>
-
-      <div class="img-text">
-        <div class="img-lab">
-          <span class="img-label">MERCEDES-BENZ G-CLASS</span>
-          <span class="img-date">2019</span>
-        </div>
-        <div class="img-perDay">
-          <span class="img-perDay-dol">$</span>
-          <span class="img-perDay-price">180</span>
-          <div class="img-perDay-perDay">
-            <span style="margin-right: 3px">PER</span>
-            <span>DAY</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="img-block">
-
-      <div class="img-auto">
-        <img src="../../../../assets/img/zaz.png">
-      </div>
-
-      <div class="img-text">
-        <div class="img-lab">
-          <span class="img-label">TESLA MODEL X</span>
-          <span class="img-date">2018</span>
-        </div>
-        <div class="img-perDay">
-          <span class="img-perDay-dol">$</span>
-          <span class="img-perDay-price">180</span>
-          <div class="img-perDay-perDay">
-            <span style="margin-right: 3px">PER</span>
-            <span>DAY</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
   </div>
 
 </div>

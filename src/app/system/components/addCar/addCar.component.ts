@@ -9,6 +9,9 @@ import { MapsAPILoader } from '@agm/core';
 // @ts-ignore
 import {} from '@types/googlemaps';
 import {Pick_up_placeModel} from '../../shared/models/pick_up_place.model';
+import { MultiSelect } from '@syncfusion/ej2-dropdowns';
+
+
 
 
 @Component({
@@ -30,6 +33,20 @@ export class AddCarComponent implements OnInit, OnDestroy {
   sub: Subscription;
   sub1: Subscription;
   carData: CarModel;
+  features = [
+    "22 inch wheels",
+    "Power gestured roof",
+    "Heated front seats",
+    "Heated steering wheel",
+    "Ambient interior lighting",
+    "Meridian sound system",
+    "Interactive driver display",
+    "Lane departure warning",
+    "Emergency braking",
+    "Traffic sign recognition",
+    "Adaptive speed limiter"
+  ];
+
 
   constructor(private addCarService: AddCarService,
               private googleMapsService: GoogleMapsService,

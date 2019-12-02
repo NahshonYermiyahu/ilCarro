@@ -43,8 +43,8 @@
   </div>
 
   <div class="item item--5">
-    <a [routerLink]="['/system','search']">Search</a>
-    <a [routerLink]="['/system','let-car']">Let the car work</a>
+    <a [routerLink]="['/system','find']">Search</a>
+    <a [routerLink]="['/system','addCar']">Let the car work</a>
     <a href="#">Terms of use</a>
     <a *ngIf="!isAuthenticated" [routerLink]="['/auth', 'signup']">Sign up</a>
     <a *ngIf="!isAuthenticated" [routerLink]="['/auth', 'login']">Log in</a>

@@ -584,6 +584,7 @@
         <div class="d-text">
           Type feature
         </div>
+
         <label for="features"></label>
         <select
           *ngIf="numberCar.length>0"
@@ -596,20 +597,13 @@
           required
           multiple
         >
-          <option value=""></option>
-          <option value=""></option>
-          <option value="22 inch wheels">22 inch wheels</option>
-          <option value="Power gestured roof">Power gestured roof</option>
-          <option value="Heated front seats ">Heated front seats </option>
-          <option value="Heated steering wheel ">Heated steering wheel </option>
-          <option value="Ambient interior lighting">Ambient interior lighting</option>
-          <option value="Meridian sound system">Meridian sound system</option>
-          <option value="Interactive driver display">Interactive driver display</option>
-          <option value="Lane departure warning">Lane departure warning</option>
-          <option value="Emergency braking">Emergency braking</option>
-          <option value="Traffic sign recognition">Traffic sign recognition</option>
-          <option value="Adaptive speed limiter">Adaptive speed limiter</option>
+          <option
+            *ngFor="let feat of features"
+            [value] = feat
+          >- {{feat}}</option>
+
         </select>
+
         <label for="features1"></label>
         <select
           *ngIf="!numberCar.length>0"
@@ -622,20 +616,13 @@
           required
           multiple
         >
-          <option value="" ></option>
-          <option value=""></option>
-          <option value="22 inch wheels">22 inch wheels</option>
-          <option value="Power gestured roof">Power gestured roof</option>
-          <option value="Heated front seats ">Heated front seats </option>
-          <option value="Heated steering wheel ">Heated steering wheel </option>
-          <option value="Ambient interior lighting">Ambient interior lighting</option>
-          <option value="Meridian sound system">Meridian sound system</option>
-          <option value="Interactive driver display">Interactive driver display</option>
-          <option value="Lane departure warning">Lane departure warning</option>
-          <option value="Emergency braking">Emergency braking</option>
-          <option value="Traffic sign recognition">Traffic sign recognition</option>
-          <option value="Adaptive speed limiter">Adaptive speed limiter</option>
+          <option
+            *ngFor="let feat of features"
+            [value] = feat
+          >- {{feat}}</option>
         </select>
+
+
       </div>
 
       <div class="let-label" style="margin-top: 58px">

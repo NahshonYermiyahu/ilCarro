@@ -1,3 +1,14 @@
-.sebm-google-map-container {
-  height: 100%;
+/*.sebm-google-map-container {*/
+/*  height: 100%;*/
+/*}*/
+agm-map {
+  height: 915px;
+}
+
+agm-marker-cluster {
+  border: #EA2340 solid 1px;
+  width: 20px;
+  height: 20px;
+  background-color: darkslategray;
+  color: #FFFFFF;
 }

@@ -176,18 +176,24 @@
   </div>
 
   <div class="st-map">
-    <agm-map
+    <app-google-maps
       [latitude]="pick_up_place.latitude"
       [longitude]="pick_up_place.longitude"
-      [disableDefaultUI]="true"
-      [zoomControl]="true"
       [zoom]="zoom"
-    >
-      <agm-marker
-        [latitude]="pick_up_place.latitude"
-        [longitude]="pick_up_place.longitude"
-      ></agm-marker>
-    </agm-map>
+    ></app-google-maps>
+<!--    <agm-map-->
+<!--      [latitude]="pick_up_place.latitude"-->
+<!--      [longitude]="pick_up_place.longitude"-->
+<!--      [disableDefaultUI]="true"-->
+<!--      [zoomControl]="true"-->
+<!--      [zoom]="zoom"-->
+<!--    >-->
+<!--      <agm-marker-->
+<!--        [latitude]="pick_up_place.latitude"-->
+<!--        [longitude]="pick_up_place.longitude"-->
+<!--      ></agm-marker>-->
+<!--    </agm-map>-->
+
   </div>
 
   <div class="st-clients">

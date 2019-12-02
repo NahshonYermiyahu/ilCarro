@@ -17,6 +17,8 @@ import { GoogleMapsComponent } from './components/google-maps/google-maps.compon
 import {AgmCoreModule} from '@agm/core';
 import {FileUploadModule} from 'ng2-file-upload';
 import { NpnSliderModule } from "npn-slider";
+import {AngularMultiSelectModule} from 'angular2-multiselect-dropdown';
+import {AgmJsMarkerClustererModule} from '@agm/js-marker-clusterer';
 
 
 
@@ -50,7 +52,9 @@ import { NpnSliderModule } from "npn-slider";
       libraries: ['places']
     }),
     FileUploadModule,
-    NpnSliderModule
+    NpnSliderModule,
+    AngularMultiSelectModule,
+    AgmJsMarkerClustererModule
   ]
 })
 export class SystemModule { }

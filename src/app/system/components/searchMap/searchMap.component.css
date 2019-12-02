@@ -86,13 +86,11 @@
   opacity: 1;
 }
 
-
 .search-img{
   width: 1090px;
   height: 915px;
   margin-top: 85px;
   display: grid;
-  grid-template-rows: repeat(3, 395px);
   grid-template-columns: repeat(2,536px);
 }
 

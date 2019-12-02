@@ -4,6 +4,7 @@ import {GoogleMapsService} from '../../services/google-maps.service';
 import {AddCarService} from '../../services/addCar.service';
 import {CarModel} from '../../shared/models/car.model';
 import {Subscription} from 'rxjs';
+import {ActivatedRoute, Params} from '@angular/router';
 
 
 interface PickUpPlace {
@@ -27,7 +28,8 @@ interface Location {
   styleUrls: ['./carDetails.component.css']
 })
 export class CarDetailsComponent implements OnInit, OnDestroy {
-  sn = "765-54-321";
+
+  carNumber: string;
   car:CarModel;
   sub: Subscription;
   sub1: Subscription;
@@ -48,17 +50,23 @@ export class CarDetailsComponent implements OnInit, OnDestroy {
   isLoading = false;
 
   constructor(private googleMapsService: GoogleMapsService,
+              private activatedRoute: ActivatedRoute,
               private addCarService: AddCarService) { }
 
   ngOnInit() {
     this.isLoading = true;
-     this.sub = this.addCarService.getCar(this.sn).subscribe(data => {
-      console.log(data);
+    this.activatedRoute.params
+      .subscribe(data => {
+        this.carNumber = data.serial_number;
+
+      });
+     this.sub = this.addCarService.getCar(this.carNumber)
+       .subscribe(data => {
       this.car = data;
       this.pick_up_place = data.pick_up_place;
-       this.sub1 = this.googleMapsService.getAddressByCoordinates(this.car.pick_up_place)
+       this.sub1 = this.googleMapsService
+         .getAddressByCoordinates(this.pick_up_place)
          .subscribe(data => {
-           console.log(data);
            this.location = data;
            this.isLoading = false;
          }, errorMessage => {

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ClusterStyle} from '@agm/js-marker-clusterer/services/google-clusterer-types';
 
 interface Marker {
   lat: number;
@@ -22,21 +23,41 @@ interface Location {
 })
 export class GoogleMapsComponent implements OnInit {
 
+  @Input()latitude;
+  @Input()longitude;
+  @Input()zoom;
+  @Input()markersInput;
+
   public location:Location = {
-    lat: 31.912363,
-    lng: 34.8047923,
+    lat: 32.087931499999996,
+    lng: 34.79724599999997,
     marker: {
-      lat: 31.912363,
-      lng: 34.8047923,
+      lat: 32.087931499999996,
+      lng: 34.79724599999997,
       draggable: true
     },
     zoom: 12
   };
+  markers: any;
+  clusterStyles: ClusterStyle[];
+
 
   constructor(){}
 
   ngOnInit() {
     this.location.marker.draggable = true;
+    this.location.lat = this.latitude;
+    this.location.lng = this.longitude;
+    this.location.marker.lat = this.latitude;
+    this.location.marker.lng = this.longitude;
+    this.markers = this.markersInput;
+    this.clusterStyles =[
+      {
+        textSize: 22,
+        url: "assets/icons/cluster_8230.png",
+        height: 37,
+        width: 32
+      }]
   }
 
   markerDragEnd(m: any) {

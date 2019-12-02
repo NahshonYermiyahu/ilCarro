@@ -38,7 +38,7 @@
             class="d-input"
             id="from"
             type="datetime-local"
-            [ngModel]="startDate | date: 'yyyy-MM-ddThh:mm'"
+            [ngModel]="startDate |  date: 'yyyy-MM-ddThh:mm' "
             (ngModelChange)="startDate = $event"
             name="start_date"
             required
