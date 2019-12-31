@@ -21,7 +21,7 @@ import {AgmJsMarkerClustererModule} from '@agm/js-marker-clusterer';
     AngularMultiSelectModule,
     CommonModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBZ9wGJSeKuaVXHJg3sKovhlZybGI7fW7A',
+      apiKey: 'AIzaSyBZ9wGJSeKuaVXHJg3sKovhlZybGI7fW7',
       libraries: ['places']
     }),
     AgmJsMarkerClustererModule,
