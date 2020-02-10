@@ -21,7 +21,7 @@ import {AgmJsMarkerClustererModule} from '@agm/js-marker-clusterer';
     AngularMultiSelectModule,
     CommonModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBZ9wGJSeKuaVXHJg3sKovhlZybGI7fW7',
+      apiKey: '',
       libraries: ['places']
     }),
     AgmJsMarkerClustererModule,
@@ -32,7 +32,7 @@ import {AgmJsMarkerClustererModule} from '@agm/js-marker-clusterer';
     FormsModule,
     NgbModule,
     SystemModule,
-    CloudinaryModule.forRoot({Cloudinary}, {cloud_name: 'dp0qiqfyj'} as CloudinaryConfiguration)
+    CloudinaryModule.forRoot({Cloudinary}, {cloud_name: ''} as CloudinaryConfiguration)
   ],
   providers: [GoogleMapsAPIWrapper],
   exports: [AppComponent],

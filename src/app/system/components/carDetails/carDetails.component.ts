@@ -59,6 +59,7 @@ export class CarDetailsComponent implements OnInit, OnDestroy {
       .subscribe(data => {
         this.carNumber = data.serial_number;
 
+
       });
      this.sub = this.addCarService.getCar(this.carNumber)
        .subscribe(data => {

@@ -66,46 +66,46 @@ export class AddCarComponent implements OnInit, OnDestroy {
         let autocomplete = new google.maps.places
           .Autocomplete(
             this.searchElement.nativeElement,
-            {types: ["address"]}
+            {types: ['(cities)']}
           );
-        autocomplete.addListener("place_changed", () => {
-            this.ngZone.run(() => {
-              let place: google.maps.places
-                .PlaceResult = autocomplete.getPlace();
-              if (place.geometry === undefined || place.geometry === null) {
-                return;
-              }
-              for (let i = 0; i < place.address_components.length; i++) {
-                let types = place.address_components[i].types;
-
-                if (types.indexOf('locality') != -1) {
-                  this.location.city = place
-                    .address_components[i].long_name
-                }
-                if (types.indexOf('country') != -1) {
-                  this.location.country = place
-                    .address_components[i].long_name
-                }
-                if (types.indexOf('route') != -1) {
-                  this.location.street = place
-                    .address_components[i].long_name.concat(", ", this.location.street);
-                }
-                if (types.indexOf('postal_code') != -1) {
-                  this.location.zip = place
-                    .address_components[i].long_name
-                }
-                if (types.indexOf('administrative_area_level_2') != -1) {
-                  this.location.region = place
-                    .address_components[i].long_name
-                }
-                if (types.indexOf('street_number') != -1) {
-                  this.location.street = place.
-                    address_components[i].long_name.concat(", ", this.location.street);
-                }
-              }
-            });
-          }
-        );
+        // autocomplete.addListener("place_changed", () => {
+        //     this.ngZone.run(() => {
+        //       let place: google.maps.places
+        //         .PlaceResult = autocomplete.getPlace();
+              // if (place.geometry === undefined || place.geometry === null) {
+              //   return;
+              // }
+              // for (let i = 0; i < place.address_components.length; i++) {
+              //   let types = place.address_components[i].types;
+              //
+              //   if (types.indexOf('locality') != -1) {
+              //     this.location.city = place
+              //       .address_components[i].long_name
+              //   }
+              //   if (types.indexOf('country') != -1) {
+              //     this.location.country = place
+              //       .address_components[i].long_name
+              //   }
+              //   if (types.indexOf('route') != -1) {
+              //     this.location.street = place
+              //       .address_components[i].long_name.concat(", ", this.location.street);
+              //   }
+              //   if (types.indexOf('postal_code') != -1) {
+              //     this.location.zip = place
+              //       .address_components[i].long_name
+              //   }
+              //   if (types.indexOf('administrative_area_level_2') != -1) {
+              //     this.location.region = place
+              //       .address_components[i].long_name
+              //   }
+              //   if (types.indexOf('street_number') != -1) {
+              //     this.location.street = place.
+              //       address_components[i].long_name.concat(", ", this.location.street);
+              //   }
+              // }
+          //   });
+          // }
+        //);
       })
   }
 
